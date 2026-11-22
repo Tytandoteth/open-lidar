@@ -1,0 +1,8 @@
+node_modules
+dist
+.vercel
+.env*
+scripts/.cache
+.claude
+.DS_Store
+*.log

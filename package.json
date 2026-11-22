@@ -1,0 +1,39 @@
+{
+  "name": "open-lidar",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Search any place and swipe from satellite to bare-earth lidar to see what is under the trees.",
+  "license": "MIT",
+  "author": "Ty Blackard (https://tyblackard.com)",
+  "homepage": "https://open-lidar.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tytandoteth/open-lidar.git"
+  },
+  "bugs": "https://github.com/Tytandoteth/open-lidar/issues",
+  "keywords": [
+    "lidar",
+    "maplibre",
+    "elevation",
+    "archaeology",
+    "hillshade",
+    "dem"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "build:sites": "node scripts/build-sites.mjs",
+    "build:sites-eu": "node scripts/build-sites-eu.mjs"
+  },
+  "dependencies": {
+    "geotiff": "2.1.3",
+    "lerc": "4.3.0",
+    "maplibre-gl": "6.17.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "vite": "6.4.6"
+  }
+}

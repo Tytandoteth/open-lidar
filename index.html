@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Open Lidar</title>
+    <meta name="description" content="Search any place and switch from satellite to bare-earth lidar to see what's under the trees." />
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="sat-overlay" aria-hidden="true"></div>
+
+    <div id="loader" role="progressbar" aria-label="Loading lidar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="bar"></div>
+      <div class="load-pill"><span class="spin"></span><span id="load-text">Loading lidar…</span></div>
+    </div>
+
+    <div id="swipe" hidden>
+      <div class="swipe-line"></div>
+      <button class="swipe-knob" role="slider" aria-label="Satellite and lidar comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⟷</button>
+      <span class="swipe-label left">Satellite</span>
+      <span class="swipe-label right">Lidar</span>
+    </div>
+
+    <header class="panel top-left">
+      <div class="header-row">
+        <a class="brand" href="/?place=cahokia-mounds">Open<span>Lidar</span></a>
+        <button id="share" type="button">Share view</button>
+      </div>
+      <form class="search" role="search">
+        <div class="search-row">
+        <input id="q" aria-label="Search places or coordinates" role="combobox" aria-autocomplete="list" aria-controls="results" aria-expanded="false" type="search" placeholder="Search a place or paste lat, lon" autocomplete="off" spellcheck="false" />
+          <button type="submit">Search</button>
+        </div>
+        <ul id="results" aria-label="Search results" role="listbox" hidden></ul>
+        <div class="feedback" id="search-status" role="status" hidden></div>
+      </form>
+      <p class="feedback" id="share-status" role="status" hidden></p>
+      <div class="featured-row">
+        <select id="featured" aria-label="Explore featured places"></select>
+        <a href="https://tyblackard.com/lidar">Featured story</a>
+      </div>
+    </header>
+
+    <nav class="panel modes" aria-label="View mode">
+      <button data-mode="satellite">Satellite</button>
+      <button data-mode="lidar">Lidar</button>
+      <button data-mode="swipe" class="on">Compare</button>
+    </nav>
+
+    <aside class="panel side">
+      <button id="side-toggle" class="side-toggle" aria-expanded="false">Layers &amp; depth</button>
+      <div class="side-body">
+      <section>
+        <h3>Lidar style</h3>
+        <div class="seg" id="styles">
+          <button data-style="hillshade" class="on">Hillshade</button>
+          <button data-style="tinted">Height</button>
+          <button data-style="slope">Slope</button>
+        </div>
+      </section>
+      <section class="sliders">
+        <label>Relief depth <input type="range" id="s-depth" min="0" max="100" value="70" /></label>
+        <label>Sun angle <input type="range" id="s-sun" min="0" max="359" value="315" /></label>
+      </section>
+      <section id="legend" hidden>
+        <div class="ramp"></div>
+        <div class="ramp-labels"><span id="lg-lo">—</span><span class="muted">height in view</span><span id="lg-hi">—</span></div>
+      </section>
+      <section class="toggles">
+        <label><input type="checkbox" id="t-labels" checked /> Place labels</label>
+        <label><input type="checkbox" id="t-coverage" /> Show 1 m lidar coverage (US)</label>
+        <label><input type="checkbox" id="t-sites" checked /> Site pins (US &amp; Europe)</label>
+        <label class="indent"><input type="checkbox" id="t-historic" /> Include other historic sites</label>
+        <label><input type="checkbox" id="t-3d" /> 3D terrain</label>
+      </section>
+      <section>
+        <h3>Here</h3>
+        <div id="status" class="status">—</div>
+      </section>
+      <section class="credits">
+        <h3>Made by Ty Blackard</h3>
+        <nav class="credit-links" aria-label="Ty Blackard elsewhere">
+          <a href="https://tyblackard.com" target="_blank" rel="noopener">tyblackard.com</a>
+          <a href="https://www.tiktok.com/@ty.prompts.ai" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://x.com/TyPrompts" target="_blank" rel="noopener">X</a>
+          <a href="https://github.com/Tytandoteth/open-lidar" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <p class="muted credit-note">Open source, MIT. Built on public elevation data.</p>
+      </section>
+      </div>
+    </aside>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
