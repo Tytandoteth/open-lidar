@@ -2,7 +2,7 @@
 
 Search any place, then flip from satellite to bare-earth lidar to see what's under the trees.
 
-**Live:** [open-lidar.vercel.app](https://open-lidar.vercel.app) · **Story:** [tyblackard.com/lidar](https://tyblackard.com/lidar)
+**Live:** [open-lidar.vercel.app](https://open-lidar.vercel.app) · **Story:** [tyblackard.com/openlidar](https://tyblackard.com/openlidar)
 
 Inspired by [pietromiotti.com/latest/maya-site](https://pietromiotti.com/latest/maya-site/).
 
